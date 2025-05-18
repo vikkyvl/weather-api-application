@@ -10,7 +10,7 @@ class ConfigService{
     }
 
     public getBrockerUri() {
-        return process.env.BROKER_URI ?? 'amqps://...';
+        return process.env.BROKER_URL ?? 'amqps://...';
     }
 
     public getPort(){
