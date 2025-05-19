@@ -32,8 +32,10 @@ export class SubscriptionService {
 
         await this.subscriptionRepository.save(subscription);
 
-        const confirmLink = `http://localhost:3000/api/confirm/${token}`;
-        const unsubscribeLink = `http://localhost:3000/api/unsubscribe/${token}`;
+        const baseUrl = process.env.API_BASE_URL;
+
+        const confirmLink = `${baseUrl}/api/confirm/${token}`;
+        const unsubscribeLink = `${baseUrl}/api/unsubscribe/${token}`;
 
         await transporter.sendMail({
             from: `Weather API Application <${process.env.EMAIL_USER}>`,
